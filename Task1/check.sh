@@ -53,13 +53,8 @@ check() {
     printf '%s | %s | %s | %s\n' \
         "$(date '+%Y-%m-%d %H:%M:%S')" "$site" "$url" "$status" \
         >> "$log_file"
-    
-    if [[ "$response" == "200" ]]; then
-        echo "$display_name is up."
-        return 0
-    fi
-
-    echo "$display_name is down."
+ 
+    echo "$display_name $status"
     return 1
 }
 
